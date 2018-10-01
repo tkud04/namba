@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using namba.Models;
 using namba.Interfaces;
-using UAParser;
 
 namespace namba.Controllers
 {
