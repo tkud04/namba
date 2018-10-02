@@ -48,6 +48,7 @@ namespace namba.Services
 				fn = "Error: " + e.ToString();
 			}
 			
+			Console.WriteLine("fn: " + fn);
 			//fn = "C:\\users\\user\\documents";
 			fn = Regex.Replace(fn,@"\t|\n|\r","");
 			return fn;
