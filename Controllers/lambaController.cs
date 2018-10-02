@@ -22,11 +22,7 @@ namespace namba.Controllers
 		
 		// GET: lamba
 		public ActionResult Index()
-		{
-		    
-			Console.WriteLine(Request.GetDisplayUrl());
-		    Console.WriteLine(Request.GetEncodedUrl());
-			
+		{	
 			string ret = _helper.getPayload();
 			int ret2 = 0;
 			
