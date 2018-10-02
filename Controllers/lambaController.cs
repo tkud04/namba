@@ -23,7 +23,7 @@ namespace namba.Controllers
 		// GET: lamba
 		public ActionResult Index()
 		{
-		    /*
+		    
 			Console.WriteLine(Request.GetDisplayUrl());
 		    Console.WriteLine(Request.GetEncodedUrl());
 			
@@ -34,11 +34,8 @@ namespace namba.Controllers
 			{
 				ret2 = _helper.callSystem(ret);
 			}
-			*/
 			
-			//var uaParser = Parser.GetDefault();
-			string[] resourceNames = Assembly.GetExecutingAssembly().GetManifestResourceNames();
-			ViewData["resourceNames"] = resourceNames;
+
 			//var agt = Request.UserAgent;
              
 			return View();

